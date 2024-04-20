@@ -145,3 +145,5 @@ alias krew='nocorrect krew'
 # Enable vi mode
 # set -o vi
 
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
