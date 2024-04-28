@@ -23,6 +23,7 @@
 "    -> Spell checking
 "    -> Misc
 "    -> Helper functions
+"    -> Language Specific Mods
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -143,8 +144,10 @@ if $COLORTERM == 'gnome-terminal'
 endif
 
 try
-    colorscheme desert
+    colorscheme gruvbox
 catch
+    " Fallback to builtin color
+    colorscheme slate
 endtry
 
 set background=dark
