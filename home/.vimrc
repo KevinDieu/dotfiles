@@ -144,7 +144,7 @@ if $COLORTERM == 'gnome-terminal'
 endif
 
 try
-    colorscheme gruvbox
+    colorscheme iceberg
 catch
     " Fallback to builtin color
     colorscheme slate
