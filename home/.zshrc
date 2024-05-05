@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export LESS='-R --wheel-lines=3'
-export PATH=/home/kevin/bin:$PATH
+export PATH=/home/kevin/bin:/home/kevin/scripts:$PATH
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # Preferred editor for local and remote sessions
