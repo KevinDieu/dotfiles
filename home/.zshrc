@@ -80,6 +80,9 @@ export HISTSIZE=1000000000
 # Append to history immediately instead of on shell exit
 setopt INC_APPEND_HISTORY
 
+# Share history between terminals
+setopt HIST_EXPIRE_DUPS_FIRST
+
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
@@ -92,7 +95,7 @@ plugins=(
 #   git 
     z
     sudo
-#   zsh-autosuggestions
+    zsh-autosuggestions
     docker
 #   zsh-syntax-highlighting
 #   zsh-vim-mode
@@ -145,5 +148,9 @@ alias krew='nocorrect krew'
 # Enable vi mode
 # set -o vi
 
-
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# Source custom completion scripts
+autoload -U +X compinit && compinit
+source <(kubectl completion zsh)
+
