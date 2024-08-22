@@ -1,0 +1,3 @@
+$include /etc/inputrc
+
+"\C-l":clear-screen                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             set completion-ignore-case On
