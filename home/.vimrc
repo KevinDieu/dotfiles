@@ -194,7 +194,8 @@ set lbr
 set tw=500
 
 set ai "Auto indent
-set si "Smart indent
+" Disabling Smart Indent in favor of the more accurate filetype indent
+"set si "Smart indent
 set wrap "Wrap lines
 
 
