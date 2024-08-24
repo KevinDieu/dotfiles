@@ -25,5 +25,5 @@ safe-alias bat batcat
 safe-alias fd fdfind
 safe-alias rms trash-put
 safe-alias ap ansible-playbook
-safe-alias a, ansible
+safe-alias a ansible
 safe-alias ad ansible-doc
