@@ -96,7 +96,7 @@ plugins=(
     z
     sudo
     zsh-autosuggestions
-    docker
+#   docker
 #   zsh-syntax-highlighting
 #   zsh-vim-mode
 )
