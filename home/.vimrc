@@ -145,6 +145,7 @@ endif
 
 try
     colorscheme nord
+    hi Visual ctermbg=236 guibg=#88C0D0
 catch
     " Fallback to builtin color
     colorscheme slate
