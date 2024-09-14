@@ -19,6 +19,10 @@ safe-alias (){
     fi
 }
 
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
 safe-alias k "kubectl"
 safe-alias scb "clip.exe"
 safe-alias bat batcat
@@ -28,4 +32,4 @@ safe-alias ap ansible-playbook
 safe-alias a ansible
 safe-alias ad ansible-doc
 safe-alias tf terraform
-
+safe-alias cht=cht.sh
