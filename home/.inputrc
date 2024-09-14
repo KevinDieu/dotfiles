@@ -1,3 +1,10 @@
 $include /etc/inputrc
 
-"\C-l":clear-screen                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             set completion-ignore-case On
+# Bind ctrl+l to cls
+"\C-l":clear-screen
+
+# Ignore case on tab completion
+set completion-ignore-case On
+
+# Bind F8 to history-search-backward
+"\e[19~": history-search-backward
