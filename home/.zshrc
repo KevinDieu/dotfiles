@@ -1,6 +1,6 @@
-# ------------------------
+#############################
 # Environment Configuration
-# ------------------------
+#############################
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -14,9 +14,9 @@ export PATH="$HOME/bin:$HOME/scripts:${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # Preferred editor for both local and remote sessions
 export EDITOR='vim'
 
-# ------------------------
+############################
 # Oh-My-Zsh Configuration
-# ------------------------
+############################
 
 # Path to your Oh-My-Zsh installation
 export ZSH="$HOME/.oh-my-zsh"
@@ -25,7 +25,7 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="gallois"
 
 # Auto-update configuration
-zstyle ':omz:update' mode auto # update automatically without asking
+zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' frequency 13  # Optional: specify update frequency in days
 
 # Disable auto-setting terminal title (optional)
@@ -54,9 +54,9 @@ plugins=(
 # Source Oh-My-Zsh
 source $ZSH/oh-my-zsh.sh
 
-# ------------------------
+########################
 # Custom Configuration
-# ------------------------
+########################
 
 # Homeshick Configuration
 if [[ -f "$HOME/.homesick/repos/homeshick/homeshick.sh" ]]; then
@@ -76,13 +76,13 @@ alias krew='nocorrect krew'
 bindkey '\e[19~' history-beginning-search-backward
 
 # Load Homebrew environment if available
-if command -v brew &>/dev/null; then
+if command -v brew &> /dev/null; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
-# ------------------------
+####################################
 # Shell Enhancements & Completions
-# ------------------------
+####################################
 
 # Initialize completion system
 autoload -U +X compinit && compinit
@@ -90,11 +90,11 @@ autoload -U +X compinit && compinit
 # Enable kubectl autocompletion
 source <(kubectl completion zsh)
 
-# ------------------------
+######################
 # Tmux Configuration
-# ------------------------
+######################
 
 # Attach or create a tmux session if tmux is installed
-if command -v tmux &>/dev/null && [ -z "$TMUX" ]; then
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
     tmux attach-session -t default || tmux new-session -s default
 fi
