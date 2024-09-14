@@ -55,6 +55,34 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 ########################
+# Terminal Keybindings
+########################
+
+# F7 to search forward
+bindkey '\e[18~' history-beginning-search-forward
+# F8 to search backward
+bindkey '\e[19~' history-beginning-search-backward
+
+# Ctrl+Left to move back a word
+bindkey '^[[1;5D' backward-word
+# Ctrl+Right to move forward a word
+bindkey '^[[1;5C' forward-word
+
+# Ctrl+Backspace to delete the previous word
+bindkey '^?' backward-kill-word
+# Ctrl+Delete to delete the next word
+bindkey '^[[3;5~' kill-word
+
+# Ctrl+L to clear screen
+bindkey '^L' clear-screen
+
+# Alt+T to transpose words
+bindkey '^[t' transpose-words
+
+# Ctrl+T to transpose characters
+bindkey '^T' transpose-chars
+
+########################
 # Custom Configuration
 ########################
 
@@ -72,8 +100,6 @@ fi
 # Disable autocorrect for specific commands
 alias krew='nocorrect krew'
 
-# Bind F8 to history search
-bindkey '\e[19~' history-beginning-search-backward
 
 # Load Homebrew environment if available
 if command -v brew &> /dev/null; then
