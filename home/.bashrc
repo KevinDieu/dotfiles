@@ -4,8 +4,8 @@
 
 # If not running interactively, don't do anything
 case $- in
-    *i*) ;;
-      *) return;;
+*i*) ;;
+*) return ;;
 esac
 
 #################
@@ -16,12 +16,12 @@ esac
 set -o vi
 
 # History options
-HISTCONTROL=ignoreboth    # Don't put duplicates or lines starting with spaces
-shopt -s histappend        # Append to history file instead of overwriting
+HISTCONTROL=ignoreboth # Don't put duplicates or lines starting with spaces
+shopt -s histappend    # Append to history file instead of overwriting
 
-# History size
-HISTSIZE=""
-HISTFILESIZE=""
+# Default history size (in case not set)
+HISTSIZE="${HISTSIZE:-1000000000}"
+HISTFILESIZE="${HISTFILESIZE:-2000000000}"
 
 # Check window size after each command and update LINES and COLUMNS
 shopt -s checkwinsize
@@ -47,7 +47,7 @@ fi
 
 # Set a fancy prompt with color if the terminal supports it
 case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
+xterm-color | *-256color) color_prompt=yes ;;
 esac
 
 # Uncomment for colored prompt (if terminal supports it)
@@ -74,11 +74,10 @@ unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
-xterm*|rxvt*)
+xterm* | rxvt*)
     PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
     ;;
-*)
-    ;;
+*) ;;
 esac
 
 ##################################
@@ -113,11 +112,11 @@ fi
 
 # Enable programmable completion features
 if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
+    if [ -f /usr/share/bash-completion/bash_completion ]; then
+        . /usr/share/bash-completion/bash_completion
+    elif [ -f /etc/bash_completion ]; then
+        . /etc/bash_completion
+    fi
 fi
 
 ########################
@@ -126,7 +125,6 @@ fi
 
 # Custom aliases
 alias c=clear
-alias cht=cht.sh
 complete -F __start_kubectl k
 
 # Add Homeshick primary alias
@@ -139,6 +137,6 @@ fi
 ##############
 
 # Attach or create a tmux session if tmux is installed
-if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+if command -v tmux &>/dev/null && [ -z "$TMUX" ]; then
     tmux attach-session -t default || tmux new-session -s default
 fi
