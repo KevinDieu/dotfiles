@@ -6,5 +6,26 @@ $include /etc/inputrc
 # Ignore case on tab completion
 set completion-ignore-case On
 
-# Bind F8 to history-search-backward
+# F7 to search forward
+"\e[18~": history-search-forward
+# F8 to search backward
 "\e[19~": history-search-backward
+
+# Ctrl+Left to move back a word
+"\e[1;5D": backward-word
+# Ctrl+Right to move forward a word
+"\e[1;5C": forward-word
+
+# Ctrl+Backspace to delete the previous word
+"\C-?": backward-kill-word
+# Ctrl+Delete to delete the next word
+"\e[3;5~": kill-word
+
+# Ctrl+L to clear screen
+"\C-l": clear-screen
+
+# Alt+T to transpose words
+"\M-t": transpose-words
+
+# Ctrl+T to transpose characters
+"\C-t": transpose-chars
