@@ -1,6 +1,6 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
+###########################
+# Interactive Shell Check
+###########################
 
 # If not running interactively, don't do anything
 case $- in
@@ -8,54 +8,56 @@ case $- in
       *) return;;
 esac
 
+#################
+# Shell Options
+#################
+
 # Enable vi mode
 set -o vi
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
+# History options
+HISTCONTROL=ignoreboth    # Don't put duplicates or lines starting with spaces
+shopt -s histappend        # Append to history file instead of overwriting
 
-# append to the history file, don't overwrite it
-shopt -s histappend
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+# History size
 HISTSIZE=""
 HISTFILESIZE=""
 
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
+# Check window size after each command and update LINES and COLUMNS
 shopt -s checkwinsize
 
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
+# Enable "**" to match all files in pathname expansion (optional)
 #shopt -s globstar
 
-# make less more friendly for non-text input files, see lesspipe(1)
+##################
+# Lesspipe Setup
+##################
+
+# Make less more friendly for non-text input files
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# set variable identifying the chroot you work in (used in the prompt below)
+##################
+# Prompt Setup
+##################
+
+# Set variable identifying the chroot you work in (if any)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-# set a fancy prompt (non-color, unless we know we "want" color)
+# Set a fancy prompt with color if the terminal supports it
 case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
 esac
 
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
+# Uncomment for colored prompt (if terminal supports it)
 #force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+        color_prompt=yes
     else
-	color_prompt=
+        color_prompt=
     fi
 fi
 
@@ -66,6 +68,10 @@ else
 fi
 unset color_prompt force_color_prompt
 
+#####################
+# XTerm Title Setup
+#####################
+
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
@@ -75,42 +81,37 @@ xterm*|rxvt*)
     ;;
 esac
 
-# enable color support of ls and also add handy aliases
+##################################
+# Alias and Command Enhancements
+##################################
+
+# Enable color support of ls and other commands
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
 
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# some more ls aliases
+# ls aliases for convenience
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
+# Alert alias for long running commands
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
+# Custom aliases
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
+###################
+# Bash Completion
+###################
+
+# Enable programmable completion features
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
@@ -119,10 +120,25 @@ if ! shopt -oq posix; then
   fi
 fi
 
+########################
+# Custom Configuration
+########################
+
+# Custom aliases
 alias c=clear
 alias cht=cht.sh
 complete -F __start_kubectl k
 
-
 # Add Homeshick primary alias
-source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+if [[ -f "$HOME/.homesick/repos/homeshick/homeshick.sh" ]]; then
+    source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+fi
+
+##############
+# Tmux Setup
+##############
+
+# Attach or create a tmux session if tmux is installed
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+    tmux attach-session -t default || tmux new-session -s default
+fi
