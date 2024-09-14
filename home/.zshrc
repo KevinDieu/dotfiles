@@ -101,10 +101,12 @@ plugins=(
 #   zsh-vim-mode
 )
 
-# Add Homeshick primary alias
-source "$HOME/.homesick/repos/homeshick/homeshick.sh"
-# Add Homeshick tab completion
-fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
+if [[ -f "$HOME/.homesick/repos/homeshick/homeshick.sh" ]]; then
+    # Add Homeshick primary alias
+    source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+    # Add Homeshick tab completion
+    fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
+fi
 
 source $ZSH/oh-my-zsh.sh
 
@@ -148,9 +150,18 @@ alias krew='nocorrect krew'
 # Enable vi mode
 # set -o vi
 
+# Bind F8 to history-search-backward
+bindkey '\e[19~' history-beginning-search-backward
+
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Source custom completion scripts
 autoload -U +X compinit && compinit
 source <(kubectl completion zsh)
 
+# Attach to tmux session if binary is installed
+# Check if tmux is installed and not already in a session
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+    # Attach or create a session named "default"
+    tmux attach-session -t default || tmux new-session -s default
+fi
