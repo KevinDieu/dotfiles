@@ -112,7 +112,8 @@ fi
 autoload -U +X compinit && compinit
 
 # Enable kubectl autocompletion
-source <(kubectl completion zsh)
+# Output error to /dev/null if no kubectl context cluster is active
+source <(kubectl completion zsh 2> /dev/null)
 
 ######################
 # Tmux Configuration
