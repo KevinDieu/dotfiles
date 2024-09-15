@@ -100,7 +100,7 @@ alias krew='nocorrect krew'
 
 
 # Load Homebrew environment if available
-if command -v brew &> /dev/null; then
+if [[ -f /home/linuxbrew/.linuxbrew/bin/brew ]]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
