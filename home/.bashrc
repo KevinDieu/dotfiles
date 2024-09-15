@@ -136,7 +136,9 @@ fi
 # Tmux Setup
 ##############
 
-# Attach or create a tmux session if tmux is installed
-if command -v tmux &>/dev/null && [ -z "$TMUX" ]; then
-    tmux attach-session -t default || tmux new-session -s default
+if [[ "$TERM_PROGRAM" != "vscode" ]]; then
+    # Attach or create a tmux session if tmux is installed
+    if command -v tmux &>/dev/null && [ -z "$TMUX" ]; then
+        tmux attach-session -t default || tmux new-session -s default
+    fi
 fi
