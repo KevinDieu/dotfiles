@@ -31,8 +31,8 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # Disable auto-setting terminal title (optional)
 DISABLE_AUTO_TITLE="true"
 
-# Enable command auto-correction
-ENABLE_CORRECTION="true"
+# Disable command auto-correction
+ENABLE_CORRECTION="false"
 
 # History configuration
 export HISTFILESIZE=1000000000
