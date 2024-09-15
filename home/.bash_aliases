@@ -32,4 +32,4 @@ safe-alias ap ansible-playbook
 safe-alias a ansible
 safe-alias ad ansible-doc
 safe-alias tf terraform
-safe-alias cht=cht.sh
+safe-alias cht cht.sh
