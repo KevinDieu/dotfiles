@@ -68,8 +68,6 @@ bindkey '^[[1;5D' backward-word
 # Ctrl+Right to move forward a word
 bindkey '^[[1;5C' forward-word
 
-# Ctrl+Backspace to delete the previous word
-bindkey '^?' backward-kill-word
 # Ctrl+Delete to delete the next word
 bindkey '^[[3;5~' kill-word
 
