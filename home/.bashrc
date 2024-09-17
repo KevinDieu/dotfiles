@@ -23,6 +23,9 @@ shopt -s histappend    # Append to history file instead of overwriting
 HISTSIZE="${HISTSIZE:-1000000000}"
 HISTFILESIZE="${HISTFILESIZE:-2000000000}"
 
+# After each command, append to the history file and reread it
+PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+
 # Check window size after each command and update LINES and COLUMNS
 shopt -s checkwinsize
 
