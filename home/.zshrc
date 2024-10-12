@@ -22,7 +22,10 @@ export EDITOR='vim'
 export ZSH="$HOME/.oh-my-zsh"
 
 # Theme configuration
-ZSH_THEME="gallois"
+# ZSH_THEME="gallois"
+ZSH_THEME="crcandy"
+
+
 
 # Auto-update configuration
 zstyle ':omz:update' mode auto      # update automatically without asking
@@ -67,6 +70,9 @@ bindkey '\e[19~' history-beginning-search-backward
 bindkey '^[[1;5D' backward-word
 # Ctrl+Right to move forward a word
 bindkey '^[[1;5C' forward-word
+
+# Ctrl+Backspace to delete the previous word
+bindkey '^H' backward-kill-word
 
 # Ctrl+Delete to delete the next word
 bindkey '^[[3;5~' kill-word
