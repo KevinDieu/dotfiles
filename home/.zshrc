@@ -52,6 +52,7 @@ plugins=(
     z
     sudo
     zsh-autosuggestions
+    direnv
 )
 
 # Source Oh-My-Zsh

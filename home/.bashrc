@@ -145,3 +145,11 @@ if [[ "$TERM_PROGRAM" != "vscode" ]]; then
         tmux attach-session -t default || tmux new-session -s default
     fi
 fi
+
+##############
+# DirEnv Setup
+##############
+
+if [ -x usr/bin/direnv ]; then 
+    eval "$(direnv hook bash)"; 
+fi
