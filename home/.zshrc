@@ -111,6 +111,11 @@ if [[ -f /home/linuxbrew/.linuxbrew/bin/brew ]]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
+# Load custom LS colors - Make 777 dirs easier to read
+if [[ -f ~/.dir_colors ]]; then
+    eval $(dircolors -b ~/.dircolors)
+fi
+
 ####################################
 # Shell Enhancements & Completions
 ####################################
