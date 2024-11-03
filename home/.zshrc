@@ -11,8 +11,14 @@ export LESS='-R --wheel-lines=3'
 # Add custom bin directories to PATH (portable expansion)
 export PATH="$HOME/bin:$HOME/scripts:${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
+# Add specific Windows paths
+# export PATH="/mnt/c/Users/Kevin/AppData/Local/Programs/Microsoft VS Code/bin/code:$PATH"
+
 # Preferred editor for both local and remote sessions
 export EDITOR='vim'
+
+# Shortcut variables
+export PROFILE="$HOME/.zshrc"
 
 ############################
 # Oh-My-Zsh Configuration
@@ -24,8 +30,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # Theme configuration
 # ZSH_THEME="gallois"
 ZSH_THEME="crcandy"
-
-
 
 # Auto-update configuration
 zstyle ':omz:update' mode auto      # update automatically without asking
