@@ -136,6 +136,6 @@ source <(kubectl completion zsh 2> /dev/null)
 ######################
 
 # Attach or create a tmux session if tmux is installed
-if command -v tmux &> /dev/null && [[ -z "$TMUX" ]] && [[ "$TERM_PROGRAM" != "vscode" ]]; then
+if command -v tmux &> /dev/null && [[ -z "$TMUX" ]] && [[ "$TERM_PROGRAM" != "vscode" ]] && ! tmux ls 2>/dev/null | grep -q "attached"; then
     tmux attach-session -t default || tmux new-session -s default
 fi
