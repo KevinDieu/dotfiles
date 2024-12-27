@@ -24,13 +24,22 @@ alias la='ls -A'
 alias l='ls -CF'
 alias checkd="checkov -d . --quiet --skip-check CKV_TF_1 --skip-path examples"
 
-safe-alias k "kubectl"
-safe-alias scb "clip.exe"
-safe-alias bat batcat
+alias k='kubectl'
+alias scb='clip.exe'
+alias bat='batcat'
+alias rms='trash-put'
+alias ap='ansible-playbook'
+alias a='ansible'
+alias ad='ansible-doc'
+alias tf='terraform'
 safe-alias fd fdfind
-safe-alias rms trash-put
-safe-alias ap ansible-playbook
-safe-alias a ansible
-safe-alias ad ansible-doc
-safe-alias tf terraform
-safe-alias cht cht.sh
+
+# Alis cht to local version if available.
+# Otherwise create alias function to curl cht.sh
+if [[ -n $(command -v "cht.sh") ]]; then
+    alias cht='cht.sh'
+else
+    cht(){
+        curl "cht.sh/$1"
+    }
+fi
