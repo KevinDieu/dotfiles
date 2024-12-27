@@ -135,6 +135,12 @@ if [[ -f "$HOME/.homesick/repos/homeshick/homeshick.sh" ]]; then
     source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fi
 
+# Configure homebrew managed homeshick installs
+if [[ -d /home/linuxbrew/.linuxbrew/opt/homeshick ]]; then
+    export HOMESHICK_DIR=/home/linuxbrew/.linuxbrew/opt/homeshick
+    source "/home/linuxbrew/.linuxbrew/opt/homeshick/homeshick.sh"
+fi
+
 ##############
 # Tmux Setup
 ##############

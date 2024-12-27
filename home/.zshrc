@@ -101,6 +101,12 @@ if [[ -f "$HOME/.homesick/repos/homeshick/homeshick.sh" ]]; then
     fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 fi
 
+# Configure homebrew managed homeshick installs
+if [[ -d /home/linuxbrew/.linuxbrew/opt/homeshick ]]; then
+    export HOMESHICK_DIR=/home/linuxbrew/.linuxbrew/opt/homeshick
+    source "/home/linuxbrew/.linuxbrew/opt/homeshick/homeshick.sh"
+fi
+
 # Alias definitions
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
