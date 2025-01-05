@@ -32,7 +32,7 @@ alias a='ansible'
 alias ad='ansible-doc'
 alias tf='terraform'
 safe-alias fd fdfind
-safe-alias bat='batcat'
+safe-alias bat 'batcat'
 
 # Alis cht to local version if available.
 # Otherwise create alias function to curl cht.sh
