@@ -26,13 +26,13 @@ alias checkd="checkov -d . --quiet --skip-check CKV_TF_1 --skip-path examples"
 
 alias k='kubectl'
 alias scb='clip.exe'
-alias bat='batcat'
 alias rms='trash-put'
 alias ap='ansible-playbook'
 alias a='ansible'
 alias ad='ansible-doc'
 alias tf='terraform'
 safe-alias fd fdfind
+safe-alias bat='batcat'
 
 # Alis cht to local version if available.
 # Otherwise create alias function to curl cht.sh
