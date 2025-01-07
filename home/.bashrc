@@ -8,6 +8,13 @@ case $- in
 *) return ;;
 esac
 
+#############################
+# Environment Configuration
+#############################
+
+# Add custom directories to PATH
+export PATH="$HOME/bin:$HOME/scripts:$PATH"
+
 #################
 # Shell Options
 #################
