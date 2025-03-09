@@ -13,7 +13,7 @@ esac
 #############################
 
 # Add custom directories to PATH
-export PATH="$HOME/bin:$HOME/scripts:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:$HOME/scripts:$PATH"
 
 #################
 # Shell Options
