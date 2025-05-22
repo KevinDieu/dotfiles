@@ -22,6 +22,7 @@ safe-alias (){
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias ip='ip -c'
 alias checkd="checkov -d . --quiet --skip-check CKV_TF_1 --skip-path examples"
 
 alias k='kubectl'
