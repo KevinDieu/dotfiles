@@ -9,7 +9,7 @@
 export LESS='-R --wheel-lines=3'
 
 # Add custom bin directories to PATH (portable expansion)
-export PATH="$HOME/bin:$HOME/scripts:${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:$HOME/scripts:${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # Add specific Windows paths
 # export PATH="/mnt/c/Users/Kevin/AppData/Local/Programs/Microsoft VS Code/bin/code:$PATH"
