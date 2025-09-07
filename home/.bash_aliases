@@ -32,8 +32,9 @@ alias ap='ansible-playbook'
 alias a='ansible'
 alias ad='ansible-doc'
 alias tf='terraform'
-safe-alias fd fdfind
-safe-alias bat 'batcat'
+alias pssh='parallel-ssh'
+alias fd='fdfind'
+alias bat='batcat'
 
 # Alis cht to local version if available.
 # Otherwise create alias function to curl cht.sh

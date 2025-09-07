@@ -56,6 +56,7 @@ plugins=(
     z
     sudo
     zsh-autosuggestions
+    zsh-syntax-highlighting
 )
 
 # Source Oh-My-Zsh
