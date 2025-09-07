@@ -20,6 +20,22 @@ export EDITOR='vim'
 # Shortcut variables
 export PROFILE="$HOME/.zshrc"
 
+# Default to human-readable ansible output
+export ANSIBLE_STDOUT_CALLBACK=debug
+
+# Suppress Ansible deprecation messages
+export ANSIBLE_DEPRECATION_WARNINGS=False
+
+# Source user env file
+if [[ -s "~/.env" ]]; then
+    source "~/.env"
+fi
+
+# Init/Connect to ssh keychain
+if [[ -x $(command -v keychain) ]]; then
+    eval $(keychain --eval --agents ssh id_rsa -q)
+fi
+
 ############################
 # Oh-My-Zsh Configuration
 ############################
@@ -96,6 +112,11 @@ bindkey '^T' transpose-chars
 ########################
 
 # Homeshick Configuration
+
+# Add to PATH
+export PATH="$PATH:$HOME/.homesick/repos/homeshick/homeshick.sh"
+
+# Enable homeshick completion
 if [[ -f "$HOME/.homesick/repos/homeshick/homeshick.sh" ]]; then
     source "$HOME/.homesick/repos/homeshick/homeshick.sh"
     fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
@@ -136,6 +157,12 @@ autoload -U +X compinit && compinit
 # Enable kubectl autocompletion
 # Output error to /dev/null if no kubectl context cluster is active
 source <(kubectl completion zsh 2> /dev/null)
+
+ZSH_HIGHLIGHT_SCRIPT="/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+if [[ -f "$ZSH_HIGHLIGHT_SCRIPT" ]]; then
+    source "$ZSH_HIGHLIGHT_SCRIPT"
+fi
 
 ######################
 # Tmux Configuration
