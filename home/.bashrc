@@ -13,7 +13,23 @@ esac
 #############################
 
 # Add custom directories to PATH
-export PATH="$HOME/bin:$HOME/.local/bin:$HOME/scripts:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin/:$HOME/scripts:$PATH"
+
+# Default to human-readable ansible output
+export ANSIBLE_STDOUT_CALLBACK=debug
+
+# Suppress Ansible deprecation messages
+export ANSIBLE_DEPRECATION_WARNINGS=False
+
+# Source user env file
+if [[ -s "~/.env" ]]; then
+    source "~/.env"
+fi
+
+# Init/Connect to ssh keychain
+if [[ -x $(command -v keychain) ]]; then
+    eval $(keychain --eval --agents ssh id_rsa -q)
+fi
 
 #################
 # Shell Options
@@ -166,3 +182,7 @@ fi
 if [ -x usr/bin/direnv ]; then 
     eval "$(direnv hook bash)"; 
 fi
+
+########################
+# In-Profile Functions
+########################
