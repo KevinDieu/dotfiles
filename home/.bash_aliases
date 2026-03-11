@@ -4,6 +4,41 @@
 # Aliases
 #############
 
+alias 7z='7zz'
+alias a='ansible'
+alias ad='ansible-doc'
+alias ag='ansible-galaxy'
+alias al='ansible-lint'
+alias ap='ansible-playbook'
+alias bat='batcat'
+alias checkd="checkov -d . --quiet --skip-check CKV_TF_1 --skip-path examples"
+alias dt='devtoys.cli'
+alias fd='fdfind'
+alias gp='git pull'
+alias k='kubectl'
+alias l='ls -CFh'
+alias la='ls -Ah'
+alias ll='ls -lahF'
+alias lxl='lxc list -f compact'
+alias memtop='top -o %MEM'
+alias pr='pr -w $COLUMNS'
+alias pssh='parallel-ssh'
+alias pssh='parallel-ssh'
+alias rms='trash-put'
+alias scb='clip.exe'
+alias tf='terraform'
+
+######################
+# ARG APPENDERS
+######################
+
+# Always color ip output
+alias ip='ip -c'
+
+######################
+# FUNCTIONS
+######################
+
 safe-alias (){
     # Check if exactly two arguments are provided
     if [[ $# -ne 2 ]]; then
@@ -25,34 +60,6 @@ safe-alias (){
     fi
 }
 
-alias ll='ls -lahF'
-alias la='ls -Ah'
-alias l='ls -CFh'
-alias checkd="checkov -d . --quiet --skip-check CKV_TF_1 --skip-path examples"
-
-alias k='kubectl'
-alias scb='clip.exe'
-alias rms='trash-put'
-alias ap='ansible-playbook'
-alias al='ansible-lint'
-alias a='ansible'
-alias ad='ansible-doc'
-alias tf='terraform'
-alias pssh='parallel-ssh'
-alias fd='fdfind'
-alias bat='batcat'
-
-alias memtop='top -o %MEM'
-alias ag='ansible-galaxy'
-alias gp='git pull'
-alias lxl='lxc list -f compact'
-alias pr='pr -w $COLUMNS'
-alias pssh='parallel-ssh'
-# Always color ip output
-alias ip='ip -c'
-alias dt='devtoys.cli'
-
-
 # Alis cht to local version if available.
 # Otherwise create alias function to curl cht.sh
 if [[ -n $(command -v "cht.sh") ]]; then
@@ -63,8 +70,3 @@ else
     }
 fi
 
-
-
-#############
-# FUNCTIONS
-#############
