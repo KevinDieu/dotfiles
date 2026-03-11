@@ -50,6 +50,7 @@ alias pr='pr -w $COLUMNS'
 alias pssh='parallel-ssh'
 # Always color ip output
 alias ip='ip -c'
+alias dt='devtoys.cli'
 
 
 # Alis cht to local version if available.
