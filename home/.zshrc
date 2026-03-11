@@ -26,6 +26,9 @@ export ANSIBLE_STDOUT_CALLBACK=debug
 # Suppress Ansible deprecation messages
 export ANSIBLE_DEPRECATION_WARNINGS=False
 
+# Disable apt pager
+export APT_PAGER=cat
+
 # Source user env file
 if [[ -s "~/.env" ]]; then
     source "~/.env"
@@ -73,6 +76,7 @@ plugins=(
     sudo
     zsh-autosuggestions
     zsh-syntax-highlighting
+    colored-man-pages
 )
 
 # Source Oh-My-Zsh
@@ -153,6 +157,11 @@ fi
 
 # Initialize completion system
 autoload -U +X compinit && compinit
+
+# command-not-found completion
+if [[ -f /etc/zsh_command_not_found ]]; then
+    source /etc/zsh_command_not_found
+fi
 
 # Enable kubectl autocompletion
 # Output error to /dev/null if no kubectl context cluster is active
