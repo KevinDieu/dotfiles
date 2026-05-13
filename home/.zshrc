@@ -11,6 +11,9 @@ export LESS='-R --wheel-lines=3'
 # Add custom bin directories to PATH (portable expansion)
 export PATH="$HOME/bin:$HOME/.local/bin:$HOME/scripts:${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
+# Add /snap/bin to PATH
+export PATH="/snap/bin:$PATH"
+
 # Add specific Windows paths
 # export PATH="/mnt/c/Users/Kevin/AppData/Local/Programs/Microsoft VS Code/bin/code:$PATH"
 
@@ -28,6 +31,13 @@ export ANSIBLE_DEPRECATION_WARNINGS=False
 
 # Disable apt pager
 export APT_PAGER=cat
+
+# Ripgrep config
+export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/.rgrc"
+
+# Enable extended glob matching
+setopt extendedglob
+
 
 # Source user env file
 if [[ -s "~/.env" ]]; then
