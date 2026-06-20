@@ -27,6 +27,7 @@ alias pssh='parallel-ssh'
 alias rms='trash-put'
 alias scb='clip.exe'
 alias tf='terraform'
+alias qualc='qalc'
 
 ######################
 # ARG APPENDERS
